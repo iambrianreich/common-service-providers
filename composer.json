@@ -1,0 +1,30 @@
+{
+    "name": "reichwebconsulting/common-service-providers",
+    "description": "A set of ServiceProviderInterface implementations for Pimple",
+    "type": "library",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Brian Reich",
+            "email": "breich@reich-consulting.net"
+        }
+    ],
+    "autoload" : {
+        "psr-4" : {
+            "RWC\\ServiceProviders\\" : "src/"
+        }
+    },
+    "require": {
+        "pimple/pimple": "^3.2"
+    },
+    "suggest" : {
+        "sendgrid/sendgrid": "^7.0",
+        "monolog/monolog": "^1.23",
+        "php-amqplib/php-amqplib": "^2.7"
+    },
+    "require-dev": {
+        "sendgrid/sendgrid": "^7.0",
+        "monolog/monolog": "^1.23",
+        "php-amqplib/php-amqplib": "^2.7"
+    }
+}
