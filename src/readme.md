@@ -8,7 +8,7 @@ writing the same database instantiation code.  Add some configuration and move
 on.!
 
 ## Requirements
-* [Composer](https://getcomposer.org/) must be installed to pull project dependancies.
+* [Composer](https://getcomposer.org/) must be installed to pull project dependencies.
 * PHP 7.2 or higher.
 
 ## Installation
