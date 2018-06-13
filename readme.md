@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/reichwebconsulting/common-service-providers.svg?branch=master)](https://travis-ci.org/reichwebconsulting/common-service-providers)
+
 Do you use Pimple? Do you find yourself writing the same boilerplate code
 across multiple projects to access the same or similar resources?  *Then this
 project is for you.*
