@@ -87,11 +87,11 @@ class SendGrid implements ServiceProviderInterface
      */
     public function getConfiguration(Container $resources) : array
     {
-       try {
+        try {
             // Make sure we have a config resource.
             $config = $resources->offsetGet('config');
         } catch (UnknownIdentifierException $configNotFound) {
-            throw new MissingServiceDependencyException(
+            throw new MissingDependencyException(
                 "Container did not provide dependent \"config\" service."
             );
         }

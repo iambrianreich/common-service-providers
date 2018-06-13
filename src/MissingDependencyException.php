@@ -1,6 +1,6 @@
 <?php
 /**
- * This file contains the RWC\ServiceProviders\MissingServiceDependencyException class.
+ * This file contains the RWC\ServiceProviders\MissingDependencyException class.
  *
  * @author Brian Reich <breich@reich-consulting.net>
  * @copyright 2018 Reich Web Consulting
@@ -13,6 +13,6 @@ namespace RWC\ServiceProviders;
  *
  * @package RWC\ServiceProviders
  */
-class MissingServiceDependencyException extends ServiceProviderException
+class MissingDependencyException extends ServiceProviderException
 {
 }
