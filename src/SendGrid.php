@@ -87,8 +87,6 @@ class SendGrid implements ServiceProviderInterface
      */
     public function getConfiguration(Container $resources) : array
     {
-        $config = [];
-
         try {
             // Make sure we have a config resource.
             $config = $resources->offsetGet('config');
