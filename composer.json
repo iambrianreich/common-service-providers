@@ -15,7 +15,8 @@
         }
     },
     "require": {
-        "pimple/pimple": "^3.2"
+        "pimple/pimple": "^3.2",
+        "container-interop/service-provider": "^0.4.0"
     },
     "suggest" : {
         "sendgrid/sendgrid": "^7.0",

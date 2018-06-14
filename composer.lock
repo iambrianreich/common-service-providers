@@ -4,8 +4,39 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ed7acdfecbddc6f7d5046839f73af29",
+    "content-hash": "8e1246c7066c932e860a18004bc826cc",
     "packages": [
+        {
+            "name": "container-interop/service-provider",
+            "version": "v0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/container-interop/service-provider.git",
+                "reference": "4969b9e49460690b7430b3f1a87cab07be61418a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/container-interop/service-provider/zipball/4969b9e49460690b7430b3f1a87cab07be61418a",
+                "reference": "4969b9e49460690b7430b3f1a87cab07be61418a",
+                "shasum": ""
+            },
+            "require": {
+                "psr/container": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Interop\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Promoting container interoperability through standard service providers",
+            "homepage": "https://github.com/container-interop/service-provider",
+            "time": "2017-09-20T14:13:36+00:00"
+        },
         {
             "name": "pimple/pimple",
             "version": "v3.2.3",
