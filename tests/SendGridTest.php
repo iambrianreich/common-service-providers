@@ -37,7 +37,7 @@ class SendGridTest extends TestCase
     public function testRegisterCreatesClassNameSendGridKey()
     {
         $this->container->register($this->serviceProvider);
-        $this->assertTrue($this->container->offsetExists(SendGrid::class));
+        $this->assertTrue($this->container->offsetExists(\SendGrid::class));
     }
 
     public function testRegisterCreatedLowercaseSendGridFactoryKey()
@@ -49,7 +49,7 @@ class SendGridTest extends TestCase
     public function testRegisterCreatesClassNameFactorySendGridKey()
     {
         $this->container->register($this->serviceProvider);
-        $this->assertTrue($this->container->offsetExists(SendGrid::class . 'Factory'));
+        $this->assertTrue($this->container->offsetExists(\SendGrid::class . 'Factory'));
     }
 
     /**
