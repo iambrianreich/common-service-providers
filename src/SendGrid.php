@@ -49,10 +49,10 @@ class SendGrid implements ServiceProviderInterface
             return $this->getSendGrid($resources);
         };
 
-        $pimple[SendGrid::class] =  $callback;
+        $pimple[\SendGrid::class] =  $callback;
         $pimple['sendgrid'] = $callback;
         $pimple['sendgridFactory'] = $pimple->factory($callback);
-        $pimple[SendGrid::class . 'Factory'] = $pimple->factory($callback);
+        $pimple[\SendGrid::class . 'Factory'] = $pimple->factory($callback);
     }
 
     /**
