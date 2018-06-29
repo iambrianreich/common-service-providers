@@ -52,7 +52,7 @@ SOFTWARE.
 
 ## Releases
 
-### 1.1.1 ConfigurationFile Provider
+### 1.1.3 ConfigurationFile Provider
 
 Added ConfigurationFile provider which will provide access to a configuration
 returned as an associative array.
