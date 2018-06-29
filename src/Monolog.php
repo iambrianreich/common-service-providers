@@ -34,8 +34,6 @@ class Monolog implements ServiceProviderInterface
     {
         $callback = function (Container $pimple) {
 
-            $logger =  new Logger('Printfrog');
-
             if (! $pimple->offsetExists('config')) {
                 throw new MissingDependencyException(
                     'Monolog Service Provider depends on a "config" service.'
@@ -46,7 +44,9 @@ class Monolog implements ServiceProviderInterface
 
             // A log by any other name...
             $loggerConfig = $config['log'] ?? $config['logger'] ?? $config['monolog'] ?? [];
-            $this->configure($logger, $loggerConfig);
+
+            $logger =  new Logger('Monolog');
+            $logger = $this->configure($logger, $loggerConfig);
             return $logger;
         };
         $pimple['log'] = $callback;
@@ -57,11 +57,16 @@ class Monolog implements ServiceProviderInterface
     /**
      * @param Logger $logger
      * @param array $config
+     * @return Logger Returns the configured logger.
      * @throws InvalidConfigurationException
      */
-    protected function configure(Logger $logger, array $config) : void
+    protected function configure(Logger $logger, array $config) : Logger
     {
+        $name = $config['name'] ?? 'Monolog';
+        $logger = $logger->withName($name);
+
         $handlerConfigs = $config['handlers'] ?? [];
+
 
         foreach ($handlerConfigs as $handlerConfig) {
             // Merge handler config with default.
@@ -97,6 +102,8 @@ class Monolog implements ServiceProviderInterface
                     );
             }
         }
+
+        return $logger;
     }
 
     /**

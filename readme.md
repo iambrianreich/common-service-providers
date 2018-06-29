@@ -56,3 +56,8 @@ SOFTWARE.
 
 Added ConfigurationFile provider which will provide access to a configuration
 returned as an associative array.
+
+### 1.1.4 Fix Monolog Name
+
+The Monolog Provider's "name" field was hardcoded to the name of the client
+project this component originally came from. Whoops!
