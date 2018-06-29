@@ -51,3 +51,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## Releases
+
+### 1.1.1 ConfigurationFile Provider
+
+Added ConfigurationFile provider which will provide access to a configuration
+returned as an associative array.
