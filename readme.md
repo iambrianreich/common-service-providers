@@ -1,4 +1,6 @@
+[![Latest Stable Version](https://poser.pugx.org/reichwebconsulting/common-service-providers/v/stable)](https://packagist.org/packages/reichwebconsulting/common-service-providers)
 [![Build Status](https://travis-ci.org/reichwebconsulting/common-service-providers.svg?branch=master)](https://travis-ci.org/reichwebconsulting/common-service-providers)
+[![License](https://poser.pugx.org/reichwebconsulting/common-service-providers/license)](https://packagist.org/packages/reichwebconsulting/common-service-providers)
 
 Do you use Pimple? Do you find yourself writing the same boilerplate code
 across multiple projects to access the same or similar resources?  *Then this
@@ -66,3 +68,15 @@ project this component originally came from. Whoops!
 
 Added the `Paths` Service Provider, which provides named paths from the
 service provider configuration.
+
+### 1.1.6 NamedStringProvider
+
+Added the `NamedStringProvider`. The `NamedStringProvider` is a returned a
+function used to return named string from a string collection in the service
+configuration. For example the configuration could specify a key named `urls`,
+which contains a key/value pair of URLs used by the application. A
+`NamedServiceProvider` can be registered with `urls` as it's collection named,
+and the provider function can be used to retrieve the values by key.
+
+The `Paths` service provider was refactored to extend `NamedStringProvider`, and
+the `Urls` provider was added as another common `NamedCollectionProvider`.

@@ -13,19 +13,18 @@ use Pimple\ServiceProviderInterface;
 use Pimple\Container;
 
 /**
- * The Paths service provide provides named paths as specified in the config
- * service's "paths" parameter. This can be used to specify paths for logging
- * storage, scratch folders, etc.
+ * A NamedStringProvider hardcoded to the "urls" config. Used to store a list
+ * of URLs to be referenced by the application.
  *
  * @package Catalyst\Messaging\Resources
  */
-class Paths extends NamedStringProvider implements ServiceProviderInterface
+class Urls extends NamedStringProvider implements ServiceProviderInterface
 {
     /**
      * Paths constructor.
      */
     public function __construct()
     {
-        parent::__construct('paths');
+        parent::__construct('urls');
     }
 }
