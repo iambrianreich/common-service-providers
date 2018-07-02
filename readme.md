@@ -61,3 +61,8 @@ returned as an associative array.
 
 The Monolog Provider's "name" field was hardcoded to the name of the client
 project this component originally came from. Whoops!
+
+### 1.1.5 Paths Provider
+
+Added the `Paths` Service Provider, which provides named paths from the
+service provider configuration.
