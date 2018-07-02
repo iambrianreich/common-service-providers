@@ -1,6 +1,7 @@
 [![Latest Stable Version](https://poser.pugx.org/reichwebconsulting/common-service-providers/v/stable)](https://packagist.org/packages/reichwebconsulting/common-service-providers)
 [![Build Status](https://travis-ci.org/reichwebconsulting/common-service-providers.svg?branch=master)](https://travis-ci.org/reichwebconsulting/common-service-providers)
 [![License](https://poser.pugx.org/reichwebconsulting/common-service-providers/license)](https://packagist.org/packages/reichwebconsulting/common-service-providers)
+![Packagist(https://packagist.org/packages/reichwebconsulting/common-service-providers)](https://img.shields.io/packagist/v/reichwebconsulting/common-service-providers.svg)
 
 Do you use Pimple? Do you find yourself writing the same boilerplate code
 across multiple projects to access the same or similar resources?  *Then this
