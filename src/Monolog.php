@@ -7,9 +7,11 @@ use Exception;
 use Monolog\Handler\ErrorLogHandler;
 use Monolog\Handler\SendGridHandler;
 use Monolog\Handler\StreamHandler;
+use Monolog\Handler\SwiftMailerHandler;
 use Monolog\Logger;
 use Pimple\ServiceProviderInterface;
 use Pimple\Container;
+use Swift_Mailer;
 
 /**
  * Provides the Logger resource.
@@ -94,6 +96,9 @@ class Monolog implements ServiceProviderInterface
                     break;
                 case 'SendGridHandler':
                     $this->configureSendGridHandler($logger, $handlerConfig);
+                    break;
+                case 'SwiftMailHandler':
+                    $this->configureSwiftMailHandler($logger, $handlerConfig);
                     break;
                 // Invalid handler type
                 default:
@@ -218,6 +223,38 @@ class Monolog implements ServiceProviderInterface
             $config['from'],
             $config['to'],
             $config['subject'],
+            $config['level'],
+            $config['bubble']
+        ));
+    }
+
+    /**
+     * @param Logger $logger
+     * @param array $handlerConfig
+     * @throws InvalidConfigurationException
+     */
+    protected function configureSwiftMailHandler(Logger $logger, array $handlerConfig)
+    {
+        $config = array_merge(
+            [
+                'mailer' => null,
+                'message' => null,
+                'level'   => Logger::ERROR,
+                'bubble'  => true,
+            ],
+            $handlerConfig
+        );
+
+        $required = ['mailer', 'message'];
+        foreach ($required as $field) {
+            if (empty($config[$field])) {
+                throw new InvalidConfigurationException("$field is required.");
+            }
+        }
+
+        $logger->pushHandler(new SwiftMailerHandler(
+            $config['mailer'],
+            $config['message'],
             $config['level'],
             $config['bubble']
         ));

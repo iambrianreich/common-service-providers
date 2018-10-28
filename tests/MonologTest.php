@@ -5,6 +5,7 @@ namespace RWC\ServiceProviders\Tests;
 use Monolog\Handler\ErrorLogHandler;
 use Monolog\Handler\SendGridHandler;
 use Monolog\Handler\StreamHandler;
+use Monolog\Handler\SwiftMailerHandler;
 use Monolog\Logger;
 use PHPUnit\Framework\TestCase;
 use Pimple\Container;
@@ -12,6 +13,7 @@ use RWC\ServiceProviders\InvalidConfigurationException;
 use RWC\ServiceProviders\MissingDependencyException;
 use RWC\ServiceProviders\Monolog;
 use RWC\ServiceProviders\Pdo;
+use Swift_Mailer;
 
 class MonologTest extends TestCase
 {
@@ -304,5 +306,61 @@ class MonologTest extends TestCase
 
         $this->expectException(InvalidConfigurationException::class);
         $logger = $this->container['logger'];
+    }
+
+    public function testSwiftMailHandlerThrowsExceptionIfMailerIsMissing()
+    {
+        $this->container['config'] = [
+            'monolog' => [
+                'handlers' => [
+                    [
+                        'type' => 'SwiftMailHandler',
+                        'message' => new \Swift_Message()
+                    ]
+                ]
+            ]
+        ];
+
+        $this->expectException(InvalidConfigurationException::class);
+        $logger = $this->container['logger'];
+    }
+
+    public function testSwiftMailHandlerThrowsExceptionIfMessageIsMissing()
+    {
+        $this->container['config'] = [
+            'monolog' => [
+                'handlers' => [
+                    [
+                        'type' => 'SwiftMailHandler',
+                        'mailer' => new Swift_Mailer(new \Swift_SmtpTransport()),
+                        //'message' => new \Swift_Message()
+                    ]
+                ]
+            ]
+        ];
+
+        $this->expectException(InvalidConfigurationException::class);
+        $logger = $this->container['logger'];
+    }
+
+    public function testSwiftMailHandler()
+    {
+        $this->container['config'] = [
+            'monolog' => [
+                'handlers' => [
+                    [
+                        'type' => 'SwiftMailHandler',
+                        'mailer' => new Swift_Mailer(new \Swift_SmtpTransport()),
+                        'message' => new \Swift_Message()
+                    ]
+                ]
+            ]
+        ];
+
+        /** @var Logger $logger */
+        $logger = $this->container['logger'];
+        $handlers = $logger->getHandlers();
+        static::assertCount(1, $handlers);
+        static::assertInstanceOf(SwiftMailerHandler::class, $handlers[0]);
     }
 }

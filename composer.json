@@ -15,7 +15,8 @@
         }
     },
     "require": {
-        "pimple/pimple": "^3.2"
+        "pimple/pimple": "^3.2",
+        "swiftmailer/swiftmailer": "^6.1"
     },
     "suggest" : {
         "sendgrid/sendgrid": "^7.0",
