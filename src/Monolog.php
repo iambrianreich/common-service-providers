@@ -11,7 +11,6 @@ use Monolog\Handler\SwiftMailerHandler;
 use Monolog\Logger;
 use Pimple\ServiceProviderInterface;
 use Pimple\Container;
-use Swift_Mailer;
 
 /**
  * Provides the Logger resource.
@@ -30,7 +29,6 @@ class Monolog implements ServiceProviderInterface
      *
      * @param  Container $pimple The Container.
      * @return void
-     * @throws MissingDependencyException if config is not present.
      */
     public function register(Container $pimple)
     {

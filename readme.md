@@ -81,3 +81,8 @@ and the provider function can be used to retrieve the values by key.
 
 The `Paths` service provider was refactored to extend `NamedStringProvider`, and
 the `Urls` provider was added as another common `NamedCollectionProvider`.
+
+### 1.1.7 Monolog SwiftMailHandler
+
+Added the `SwiftMailHandler` to `MonologProvider`. This allows you to
+configure a Monolog logger to send through email using `Swifr Mailer`.
